@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .container {
+        max-width: 800px;
+        display: grid;
+        margin-left: auto;
+        margin-right: auto;
+        align-content: center;
+        justify-items: center;
+      }
+      .btns {
+        display: flex;
+      }
+      #counter {
+        font-size: 150px;
+      }
+
+      #increment {
+        margin: 10px;
+      }
+
+      #zero {
+        margin: 10px;
+      }
+
+      #decrement {
+        margin: 10px;
+      }
+      .negative {
+        color: red;
+      }
+      .positive {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Counter</h1>
+      <div id="counter">0</div>
+      <div class="btns">
+        <button id="increment" onclick="increment()">Increase</button>
+        <button id="zero" onclick="reset()">Reset</button>
+        <button id="decrement" onclick="decrement()">Decrease</button>
+      </div>
+    </div>
+
+    <script>
+      let count = 0;
+      function increment() {
+        count++;
+        document.getElementById("counter").innerHTML = count;
+        updateColor(count);
+      }
+      function decrement() {
+        count--;
+        document.getElementById("counter").innerHTML = count;
+        updateColor(count);
+      }
+      function reset() {
+        count = 0;
+        document.getElementById("counter").innerHTML = count;
+        updateColor(count);
+      }
+
+      let counter = document.getElementById("counter");
+      function updateColor(count) {
+        if (count < 0) {
+          counter.classList.add("negative");
+        } else if (count > 0) {
+          counter.classList.add("positive");
+        } else {
+          counter.className = "";
+        }
+      }
+    </script>
+  </body>
+</html>
